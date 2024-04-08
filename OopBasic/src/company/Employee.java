@@ -2,13 +2,13 @@ package company;
 
 public class Employee {
     // フィールド
-    String name;
-    String department;
-    String position;
-    int employeeId;
+    protected final String name;
+    private final Department department;
+    private final String position;
+    private final int employeeId;
     
     //コンストラクター
-    public Employee(String name, String department, String positon, int employeeId ) {
+    public Employee(String name, Department department, String positon, int employeeId ) {
         this.name = name;
         this.department = department;
         this.position = positon;
@@ -25,9 +25,12 @@ public class Employee {
     //報告メソッド（オーバーロード）
     public void report() {
         report(1);
-        
-        
     }
     
+ // 会議に参加するメソッド
+    public void joinMeeting() {
+        department.meeting();
+        System.out.println("→上記の会議に参加します。部署：" + department.getName() + "名前：" + name);
+    }
 
 }
